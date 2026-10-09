@@ -1,0 +1,23 @@
+{
+  "name": "installer",
+  "description": "Everything needed to install Qinux from the live ISO.",
+  "inherits": "base",
+  "groups": [
+    "kde-plasma",
+    "xorg-server",
+    "xorg-drivers",
+    "fonts"
+  ],
+  "packages": [
+    "calamares",
+    "qinux-calamares-config",
+    "qinux-installer-modules",
+    "qinux-plasma-config",
+    "qinux-themes",
+    "qinux-icons",
+    "qinux-fonts",
+    "qinux-settings"
+  ],
+  "display_manager": "sddm",
+  "size_hint": 9200
+}

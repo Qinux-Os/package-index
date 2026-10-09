@@ -1,0 +1,30 @@
+{
+  "name": "desktop-kde",
+  "description": "KDE Plasma, configured as Qinux.",
+  "inherits": "base",
+  "groups": [
+    "kde-plasma",
+    "kde-applications",
+    "xorg-server",
+    "xorg-drivers",
+    "fonts"
+  ],
+  "packages": [
+    "qinux-plasma-config",
+    "qinux-kwin-config",
+    "qinux-themes",
+    "qinux-icons",
+    "qinux-cursor",
+    "qinux-fonts",
+    "qinux-wallpapers",
+    "qinux-settings",
+    "qinux-welcome",
+    "qinux-update"
+  ],
+  "conflicts": [
+    "gnome-shell",
+    "kde-plasma-extra"
+  ],
+  "display_manager": "sddm",
+  "size_hint": 8400
+}

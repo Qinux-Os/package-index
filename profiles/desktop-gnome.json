@@ -1,0 +1,20 @@
+{
+  "name": "desktop-gnome",
+  "description": "GNOME. Not yet built.",
+  "inherits": "base",
+  "groups": [
+    "gnome",
+    "xorg-server",
+    "xorg-drivers",
+    "fonts"
+  ],
+  "packages": [
+    "qinux-gnome-config"
+  ],
+  "conflicts": [
+    "kde-plasma",
+    "plasma-workspace"
+  ],
+  "display_manager": "gdm",
+  "size_hint": 7600
+}

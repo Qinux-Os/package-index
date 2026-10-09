@@ -1,0 +1,19 @@
+{
+  "name": "base",
+  "description": "Standard system utilities. No graphical session.",
+  "groups": [
+    "base",
+    "base-devel",
+    "system",
+    "network",
+    "utilities",
+    "hardware"
+  ],
+  "packages": [
+    "qinux-base-config",
+    "qinux-cli",
+    "qinux-tools",
+    "qinux-system"
+  ],
+  "size_hint": 2400
+}

@@ -1,0 +1,26 @@
+{
+  "name": "minimal",
+  "description": "Boot, networking and a shell. For rescue media and containers.",
+  "groups": [
+    "base"
+  ],
+  "packages": [
+    "linux-qinux",
+    "systemd",
+    "mkinitcpio",
+    "grub"
+  ],
+  "optional": [
+    {
+      "name": "wireless",
+      "description": "Wireless networking",
+      "packages": ["iwd", "wpa_supplicant"]
+    },
+    {
+      "name": "laptop",
+      "description": "Power management and input for laptops",
+      "packages": ["tlp", "acpid"]
+    }
+  ],
+  "size_hint": 700
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://index.qinux-os.org/schema/profile.schema.json",
+  "title": "Qinux package profile",
+  "description": "A named set of packages forming one installable component. Files in profiles/ validate against this schema.",
+  "type": "object",
+  "required": ["name", "description", "groups"],
+  "additionalProperties": false,
+  "properties": {
+    "$comment": {
+      "type": "string",
+      "description": "Note for humans and generators. Validators ignore it."
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "description": "Profile identifier. Must match the filename."
+    },
+    "description": {
+      "type": "string",
+      "description": "One sentence, shown to the user during installation."
+    },
+    "inherits": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "description": "Another profile to extend. Resolved when the index is generated."
+    },
+    "groups": {
+      "type": "array",
+      "description": "Package groups this profile includes. Groups are how most packages are named.",
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9@._+-]*$" },
+      "default": []
+    },
+    "packages": {
+      "type": "array",
+      "description": "Individual packages. Only for components that genuinely are one package.",
+      "items": { "type": "string", "pattern": "^[a-z0-9][a-z0-9@._+-]*$" },
+      "default": []
+    },
+    "optional": {
+      "type": "array",
+      "description": "Packages offered during installation but not installed by default.",
+      "items": {
+        "type": "object",
+        "required": ["name", "description"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "packages": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      },
+      "default": []
+    },
+    "conflicts": {
+      "type": "array",
+      "description": "Packages or groups that must not be installed alongside this profile.",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "display_manager": {
+      "type": "string",
+      "description": "Display manager this profile enables, if any."
+    },
+    "size_hint": {
+      "type": "integer",
+      "description": "Approximate installed size in megabytes, for the installer to show."
+    }
+  }
+}
